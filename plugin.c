@@ -54,3 +54,11 @@ void shutdown(){
         pluginID = NULL;
     }
 }
+
+void ts3plugin_onUpdateChannelEditEvent(uint64 serverConnecctionHandlerID, uint64 channelID, anyID invokerID, const char* invokerName, const char* invokerUniqueIdentifier){
+    uint64 currentID;
+
+    if(current_client(serverConnecctionHandlerID, invokerID, &currentID) != 1 && (current_channel(serverConnecctionHandlerID, channelID, &currentID) == 1)){
+        send_server_message_notification(serverConnecctionHandlerID, currentID, "todo, replace this shit");
+    }
+}
